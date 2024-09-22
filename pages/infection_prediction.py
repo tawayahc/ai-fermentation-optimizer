@@ -61,13 +61,12 @@ if st.button("Submit"):
     st.session_state['dataframe'] = pd.concat([st.session_state['dataframe'], new_row], ignore_index=True)
 
 # Display the updated DataFrame
-st.write("Here is the DataFrame with all your input values and their corresponding timestamps:")
 st.dataframe(st.session_state['dataframe'])
 
 # Optionally, download the DataFrame as a CSV file
 csv = st.session_state['dataframe'].to_csv(index=False).encode('utf-8')
 st.download_button(
-    label="Download DataFrame as CSV",
+    label="Download as CSV",
     data=csv,
     file_name='input_dataframe.csv',
     mime='text/csv',
