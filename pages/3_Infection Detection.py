@@ -65,7 +65,7 @@ if uploaded_files:
         </style>
     """
     st.markdown(legend_html, unsafe_allow_html=True)
-    
+
     for uploaded_file in uploaded_files:
         # Open the uploaded image with PIL
         image = Image.open(uploaded_file)

@@ -3,6 +3,7 @@ import tensorflow as tf
 # import tensorflow_addons as tfa
 from tensorflow.keras import layers, models, backend as K
 from PIL import Image
+import numpy as np
 
 # Configuration hyperparameters
 IMAGE_SIZE = [128, 128]  # Updated to match your image size
@@ -29,7 +30,7 @@ def get_model():
         inp1 = tf.keras.layers.Input(shape=(*IMAGE_SIZE, 3))
         
         # Encoder
-        x = tf.keras.layers.Conv2D(n_hidden_1, convkernel, padding='same')(inp1)
+        x = tf.keras.layers.Conv2D(n_hidden_1, convkernel, padding='same')205(inp1)
         x = tf.keras.layers.BatchNormalization()(x)
         x = tf.keras.layers.LeakyReLU()(x)
         x = tf.keras.layers.Conv2D(n_hidden_1, convkernel, padding='same')(x)
@@ -93,8 +94,6 @@ def get_model():
         model.compile(optimizer=opt, loss='mse', metrics=[tf.keras.metrics.RootMeanSquaredError()])
     
     return model
-
-import numpy as np
 
 def preprocess_image(image, target_size=(128, 128)):
     """

@@ -72,7 +72,7 @@ class CellClassifierCNN(nn.Module):
             nn.Linear(128 * 9 * 9, 512),  # Adjust the input size based on the image size and conv layers
             nn.ReLU(),
             nn.Linear(512, 3),  # 3 output classes
-            nn.Softmax(dim=1)
+            # nn.Softmax(dim=1)
         )
     
     def forward(self, x):
